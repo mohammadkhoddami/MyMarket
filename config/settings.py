@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #local apps
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
+    'shop.apps.ShopConfig',
     #TPP - Third party packaegs
     
     #alluth

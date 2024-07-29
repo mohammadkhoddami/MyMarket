@@ -17,7 +17,9 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
+env = environ.Env(
+        DEBUG=(bool, False)
+)
 env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
@@ -28,7 +30,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env(bool, False)
+DEBUG = env('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = [env('DJANGO_ALLOWED_HOST')]
 
@@ -174,7 +176,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 '''
 
 #Email smtp config
-'''
-...
-
-'''
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND')

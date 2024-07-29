@@ -1,8 +1,43 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<form action="" method="post">
-    {{ form.as_p }}
-    <input type="submit" value="Signup">
-</form>
-{% endblock content %}
+
+<div class="breadcrumb-area bg-color ptb--90" data-bg-color="#f6f6f6">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
+                    <h1 class="page-title">ثبت نام</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-wrapper">
+    <div class="page-content-inner pt--75 pb--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-sm--50">
+                    <div class="col-md-12">
+                        <div class="register-box">
+                            <h4 class="heading__tertiary mb--30">ثبت نام</h4>
+                            <form class="form form--login">
+                                <div class="form__group mb--20">
+                                    <label class="form__label form__label--2" for="email">ایمیل شما <span class="required">*</span></label>
+                                    <input type="email" class="form__input form__input--2" id="email" name="email">
+                                </div>
+                                <div class="form__group mb--20">
+                                   <label class="form__label form__label--2" for="register_password">رمز عبور <span class="required">*</span></label>
+                                    <input type="password" class="form__input form__input--2" id="register_password" name="register_password">
+                                </div>
+                                <div class="form__group">
+                                    <input type="submit" value="ثبت نام" class="btn btn-submit btn-style-1">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            {% endblock content %}

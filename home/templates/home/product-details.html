@@ -129,7 +129,9 @@
                                         <div class="product-reviews">
                                             <h3 class="review__title">۱ نظر برای لباس تابستانی</h3>
                                             <ul class="review__list">
+
                                                 {% for comment in product.comments.all %}
+                                                {% if comment.status %}
 
                                                 <li class="review__item">
                                                     <div class="review__container">
@@ -154,6 +156,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                {% endif %}
                                                 {% endfor %}
                                             </ul>
                                             <div class="review-form-wrapper">

@@ -16,7 +16,7 @@ class ProductDetail(generic.DetailView):
     model = Product
     template_name = 'home/product-details.html'
     context_object_name = 'product'
-    
+    # Can use created comment manager here but i prefer to not to use it 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()

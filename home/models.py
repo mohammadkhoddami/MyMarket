@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from . import managers
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
@@ -36,6 +37,10 @@ class Comment(models.Model):
     
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_updated = models.DateTimeField(auto_now=True)
+    
+    # Managers
+    objects = models.Manager()
+    active_comment_manager =  managers.ActiveCommentManager()
     
     
     def get_absolute_url(self):

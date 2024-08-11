@@ -54,14 +54,13 @@
                                     <span class="money old-price text-danger">{{ product.price }} </span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                    <div class="quantity-wrapper d-flex justify-content-start">
-                                        <div class="quantity">
-                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">
-                                        اضافه به سبد خرید
-                                    </button>
+                                    <form action="{% url 'shop:cart_add' product.id %}" method='POST'>
+                                        {% csrf_token %}
+                                        {{ add_to_cart_form.as_p }}
+                                        <button type="submit" class='btn'>
+                                            اضافه به سبد خرید
+                                        </button>
+                                    </form>
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">دسته بندی ها:</span>

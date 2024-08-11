@@ -12,8 +12,8 @@ class CartView(View):
 class AddToCartView(View):
     def post(self, request, product_id):
         cart = Cart(request)
-        product = get_object_or_404(Product, pk=product_id)
-        form = AddToCartProdcutForm
+        product = get_object_or_404(Product, id=product_id)
+        form = AddToCartProdcutForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
             quantity = cd['quantity']

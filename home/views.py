@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views import View, generic
 from .models import Product, Comment
 from .forms import CommentForm
+from shop.forms import AddToCartProdcutForm
 class HomeView(generic.ListView):
     queryset = Product.objects.filter(active=True)
     template_name = 'home/index.html'
@@ -20,6 +21,7 @@ class ProductDetail(generic.DetailView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()
+        context['add_to_cart_form'] = AddToCartProdcutForm()
         return context
         
 

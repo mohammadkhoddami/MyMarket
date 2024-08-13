@@ -19,3 +19,11 @@ class AddToCartView(View):
             quantity = cd['quantity']
             cart.add(product=product, quantity=quantity)
         return redirect('shop:cart')
+    
+
+class RemoveFromCartView(View):
+    def get(self, request, product_id):
+        cart = Cart(request)
+        product = get_object_or_404(Product, pk=product_id)
+        cart.remove(product=product)
+        return redirect('shop:cart')

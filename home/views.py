@@ -21,7 +21,6 @@ class ProductDetail(generic.DetailView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()
-        context['add_to_cart_form'] = AddToCartProdcutForm()
         return context
         
 

@@ -7,6 +7,7 @@ from django.views import View, generic
 from .models import Product, Comment
 from .forms import CommentForm
 from shop.forms import AddToCartProdcutForm
+from django.contrib import messages
 class HomeView(generic.ListView):
     queryset = Product.objects.filter(active=True)
     template_name = 'home/index.html'
@@ -38,4 +39,5 @@ class CommentCreateView(generic.CreateView):
         pk = int(self.kwargs['pk'])
         product = get_object_or_404(Product, pk=pk)
         obj.product = product
+        messages.success(self.request, 'Your comment added successfully', 'success')
         return super().form_valid(form)

@@ -1,13 +1,11 @@
 from typing import Any
-from django.forms import BaseModelForm
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from django.views import View, generic
+from django.views import generic
 from .models import Product, Comment
 from .forms import CommentForm
-from shop.forms import AddToCartProdcutForm
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 class HomeView(generic.ListView):
     queryset = Product.objects.filter(active=True)
     template_name = 'home/index.html'
@@ -25,7 +23,7 @@ class ProductDetail(generic.DetailView):
         return context
         
 
-class CommentCreateView(generic.CreateView):
+class CommentCreateView(LoginRequiredMixin, generic.CreateView):
     model = Comment
     form_class = CommentForm
     template_name = 'home/product-details.html'

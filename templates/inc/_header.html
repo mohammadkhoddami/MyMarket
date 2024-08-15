@@ -55,7 +55,7 @@
                                 <i class="flaticon flaticon-user"></i>
                             </a>
                             <ul class="user-info-menu">
-                                {% if request.user.is_authenticated %}
+                                {% if user.is_authenticated %}
                                 <li>
                                     <a class="text-right" href="{% url "account_logout" %}">خروج</a>
                                 </li>

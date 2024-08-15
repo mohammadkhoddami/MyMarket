@@ -3,10 +3,17 @@ from django.views import View, generic
 from .cart import Cart
 from .forms import AddToCartProdcutForm
 from home.models import Product
+
 class CartView(View):
     def get(self, request):
         cart = Cart(request)
-        return render(request, 'shop/cart.html', {'cart':cart})
+        for item in cart:
+            item['quantity_update_form'] = AddToCartProdcutForm(initial={
+                'quantity': item['quantity'],
+                'inplace': True,
+            })
+        return render(request, 'shop/cart.html', {'cart': cart})
+        
 
 
 class AddToCartView(View):
@@ -17,7 +24,9 @@ class AddToCartView(View):
         if form.is_valid():
             cd = form.cleaned_data
             quantity = cd['quantity']
-            cart.add(product=product, quantity=quantity)
+            cart.add(product=product, quantity=quantity, replace_current_quantity=cd['inplace'])
+            print('*' * 80)
+            print(f"Quantity: {quantity}, Inplace: {cd['inplace']}")
         return redirect('shop:cart')
     
 

@@ -82,7 +82,7 @@
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price }}</span>
+                                                                <span class="money">{{ item.total_price }}</span>
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -105,12 +105,6 @@
                                     <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
                                     <div class="cart-calculator">
                                         <div class="cart-calculator__item">
-                                            <div class="cart-calculator__item--head">
-                                                <span>مجموع</span>
-                                            </div>
-                                            <div class="cart-calculator__item--value">
-                                                <span>۳۴۶,۰۰۰ تومان</span>
-                                            </div>
                                         </div>
                                         <div class="cart-calculator__item order-total">
                                             <div class="cart-calculator__item--head">
@@ -118,7 +112,7 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">۳۴۶,۰۰۰ تومان</span>
+                                                    <span class="money">تومان {{ cart.get_total_price }}</span>
                                                 </span>
                                             </div>
                                         </div>

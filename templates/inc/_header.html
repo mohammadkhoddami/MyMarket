@@ -55,18 +55,18 @@
                                 <i class="flaticon flaticon-user"></i>
                             </a>
                             <ul class="user-info-menu">
+                                {% if request.user.is_authenticated %}
                                 <li>
-                                    <a class="text-right" href="my-account.html">حساب کاربری</a>
+                                    <a class="text-right" href="{% url "account_logout" %}">خروج</a>
+                                </li>
+                                {% else %}
+                                <li>
+                                    <a class="text-right" href="{% url "account_login" %}">ورود</a>
                                 </li>
                                 <li>
-                                    <a class="text-right" href="cart.html">سبد خرید</a>
+                                    <a class="text-right" href="{% url "account_signup" %}">ثبت نام</a>
                                 </li>
-                                <li>
-                                    <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
-                                </li>
-                                <li>
-                                    <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
-                                </li>
+                                {% endif %}
                             </ul>
                         </li>
                         <li class="header-toolbar__item">

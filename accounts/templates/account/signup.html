@@ -1,4 +1,6 @@
 {% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
 
@@ -21,18 +23,11 @@
                     <div class="col-md-12">
                         <div class="register-box">
                             <h4 class="heading__tertiary mb--30">ثبت نام</h4>
-                            <form class="form form--login">
-                                <div class="form__group mb--20">
-                                    <label class="form__label form__label--2" for="email">ایمیل شما <span class="required">*</span></label>
-                                    <input type="email" class="form__input form__input--2" id="email" name="email">
-                                </div>
-                                <div class="form__group mb--20">
-                                   <label class="form__label form__label--2" for="register_password">رمز عبور <span class="required">*</span></label>
-                                    <input type="password" class="form__input form__input--2" id="register_password" name="register_password">
-                                </div>
-                                <div class="form__group">
-                                    <input type="submit" value="ثبت نام" class="btn btn-submit btn-style-1">
-                                </div>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <br>
+                                <input class='btn-submit' type="submit" value="Sign Up">
                             </form>
                         </div>
                     </div>

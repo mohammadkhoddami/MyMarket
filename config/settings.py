@@ -49,7 +49,10 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'shop.apps.ShopConfig',
+    
     #TPP - Third party packaegs
+    'crispy_forms',
+    "crispy_bootstrap4",
     
     #alluth
     'django.contrib.sites',
@@ -143,7 +146,10 @@ ACCOUNT_UNIQUE_EMAIL = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home:home'
 LOGOUT_REDIRECT_URL = 'home:home'
-# ACCOUNTS_SESSION_REMEMBER = True #if u want - not recommended
+ACCOUNTS_SESSION_REMEMBER = True #if u want - not recommended
+ACCOUNT_FORMS = {'login': 'accounts.forms.LoginForm',
+                 'signup': 'accounts.forms.SignUpForm'}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -179,3 +185,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Email smtp config
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND')
+
+
+#crispy config
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

@@ -28,6 +28,10 @@
     {% block content %}
     
     {% endblock content %}
+
+{% if not request.resolver_match.url_name == 'cart' %}
+    {% include "inc/_minicart.html" %}
+    {% endif %}
         <!-- jQuery JS -->
         <script src="{% static 'js/vendor.js' %}"></script>
 

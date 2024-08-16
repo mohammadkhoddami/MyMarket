@@ -1,3 +1,5 @@
+{% load humanize %}
+{% load persian_numbers %}
 <aside class="mini-cart" id="miniCart">
     <div class="mini-cart-wrapper">
         <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
@@ -20,7 +22,7 @@
                                 </a>
                             </span>
                             <span class="mini-cart__product__quantity">
-                                <span>{{ item.product_obj.price }}</span> &#215; <span>{{ item.quantity }}</span>
+                                <span>{{ item.product_obj.price|intcomma|translate_number }}</span> &#215; <span>{{ item.quantity }}</span>
                             </span>
                         </div>
                     </li>
@@ -28,7 +30,7 @@
                 </ul>
                 <div class="mini-cart__total">
                     <span>جمع کل</span>
-                    <span class="ammount">{{ cart.get_total_price }}</span>
+                    <span class="ammount">{{ cart.get_total_price|intcomma|translate_number }}</span>
                 </div>
                 <div class="mini-cart__buttons">
                     <a href="{% url "shop:cart" %}" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد خرید</a>

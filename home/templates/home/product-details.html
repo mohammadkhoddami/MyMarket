@@ -2,6 +2,8 @@
 
 {% load static %}
 {% load comment_tags %}
+{% load humanize %}
+{% load persian_numbers %}
     {% block content %}
     
     
@@ -49,9 +51,9 @@
                                     {{ product.description }}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{ product.price }}</span>
+                                    <span class="money text-success">{{ product.price|intcomma|translate_number }}</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">{{ product.price }} </span>
+                                    <span class="money old-price text-danger">{{ product.price|intcomma|translate_number }} </span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                     <form action="{% url 'shop:cart_add' product.id %}" method='POST'>

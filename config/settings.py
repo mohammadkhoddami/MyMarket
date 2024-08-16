@@ -44,12 +44,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     
     #local apps
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'shop.apps.ShopConfig',
-    'persian_number.apps.PersianNumberConfig',
+    'persian_numbers.apps.PersianNumbersConfig',
     
     #TPP - Third party packaegs
     'crispy_forms',

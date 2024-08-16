@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 
-
+{% load humanize %}
+{% load persian_numbers %}
 <body dir="rtl">
     {% block content %}
     
@@ -66,7 +67,7 @@
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price }}</span>
+                                                                <span class="money">{{ item.product_obj.price|intcomma|translate_number }}</span>
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
@@ -82,7 +83,7 @@
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.total_price }}</span>
+                                                                <span class="money">{{ item.total_price|intcomma|translate_number }}</span>
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -112,7 +113,7 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">تومان {{ cart.get_total_price }}</span>
+                                                    <span class="money">تومان {{ cart.get_total_price|intcomma|translate_number }}</span>
                                                 </span>
                                             </div>
                                         </div>

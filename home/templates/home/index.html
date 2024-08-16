@@ -1,4 +1,6 @@
 {% extends "_base.html" %}
+{% load persian_numbers %}
+{% load humanize %}
 
 <body>
     {% block content %}
@@ -61,10 +63,10 @@
                                                             <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                                                         </h3>
                                                         <div class="product-price-wrapper mb--30">
-                                                            <span class="money text-success">{{ product.price }}</span>
+                                                            <span class="money text-success">{{ product.price|intcomma|translate_number }}</span>
                                                             <span class="money-separator">-</span>
                                                             <span class="old-price text-danger">
-                                                                <span class="money text-danger">{{ prdocut.price }}</span>
+                                                                <span class="money text-danger">{{ prdocut.price|intcomma|translate_number }}</span>
                                                             </span>
                                                         </div>
                                                         <a href="{% url "home:product" product.id %}" class="btn btn-small btn-bg-sand btn-color-dark px-3">جزییات محصول و خرید</a>

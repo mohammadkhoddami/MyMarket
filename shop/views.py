@@ -3,6 +3,7 @@ from django.views import View, generic
 from .cart import Cart
 from .forms import AddToCartProdcutForm
 from home.models import Product
+from django.http import HttpResponseNotAllowed
 
 class CartView(View):
     def get(self, request):
@@ -17,6 +18,10 @@ class CartView(View):
 
 
 class AddToCartView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponseNotAllowed(['POST'])
+    
+
     def post(self, request, product_id):
         cart = Cart(request)
         product = get_object_or_404(Product, id=product_id)
@@ -25,8 +30,6 @@ class AddToCartView(View):
             cd = form.cleaned_data
             quantity = cd['quantity']
             cart.add(product=product, quantity=quantity, replace_current_quantity=cd['inplace'])
-            print('*' * 80)
-            print(f"Quantity: {quantity}, Inplace: {cd['inplace']}")
         return redirect('shop:cart')
     
 

@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="error-container text-center mt-5">
+        <h1 class="error-title ss02">405</h1>
+        <p class="error-message">متأسفانه روش استفاده شده برای دسترسی به این صفحه مجاز نیست.</p>
+        <div class="error-action">
+            <a href="{% url 'home:home' %}" class="btn btn-primary">بازگشت به صفحه اصلی</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

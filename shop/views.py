@@ -3,7 +3,7 @@ from django.views import View, generic
 from .cart import Cart
 from .forms import AddToCartProdcutForm
 from home.models import Product
-from django.http import HttpResponseNotAllowed
+from django.http import HttpResponseNotAllowed, HttpResponse
 
 class CartView(View):
     def get(self, request):
@@ -19,8 +19,8 @@ class CartView(View):
 
 class AddToCartView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponseNotAllowed(['POST'])
-    
+        response = render(request, '405.html')
+        return HttpResponseNotAllowed(['POST'], response)
 
     def post(self, request, product_id):
         cart = Cart(request)

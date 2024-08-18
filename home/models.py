@@ -6,7 +6,7 @@ from ckeditor.fields import RichTextField
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
     price = models.PositiveBigIntegerField()
     picture = models.ImageField(null=True, blank=True)
     active = models.BooleanField(default=False)

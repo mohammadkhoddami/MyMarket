@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'shop.apps.ShopConfig',
     'persian_numbers.apps.PersianNumbersConfig',
+    'orders.apps.OrdersConfig',
     
     #TPP - Third party packaegs
     'crispy_forms',

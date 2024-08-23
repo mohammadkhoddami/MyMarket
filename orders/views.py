@@ -52,3 +52,4 @@ class CheckoutView(View):
             messages.success(request,'Your order has been added', 'success')
             return render(request, self.temp, {'form': form})
         return render(request, self.temp, {'form': form})
+    

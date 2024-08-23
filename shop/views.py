@@ -39,3 +39,9 @@ class RemoveFromCartView(View):
         product = get_object_or_404(Product, pk=product_id)
         cart.remove(product=product)
         return redirect('shop:cart')
+    
+class ClearCartView(View):
+    def get(self, request):
+        cart = Cart(request)
+        cart.clear()
+        return redirect('home:home')

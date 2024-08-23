@@ -6,5 +6,6 @@ app_name = 'shop'
 urlpatterns = [
     path('', views.CartView.as_view(), name='cart'),
     path('add/<int:product_id>/', views.AddToCartView.as_view(), name='cart_add'),
-    path('remove/<int:product_id>/', views.RemoveFromCartView.as_view(), name='cart_remove')
+    path('remove/<int:product_id>/', views.RemoveFromCartView.as_view(), name='cart_remove'),
+    path('clear/', views.ClearCartView.as_view(), name='cart_clear')
 ]

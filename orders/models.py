@@ -16,6 +16,8 @@ class Orders(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name} orderd and paid: {self.paid}'
     
+    class Meta:
+        verbose_name_plural = "Orders"
     
 class OrderItems(models.Model):
     order = models.ForeignKey(Orders, on_delete=models.CASCADE, related_name='items')
@@ -24,5 +26,5 @@ class OrderItems(models.Model):
     price = models.PositiveIntegerField()
     
     def __str__(self):
-        return f'order:{self.order} - prodcuts: {self.product} - quantity: {self.quantity} - price: {self.price}'
+        return f'order:{self.order} - prodcuts: {self.products} - quantity: {self.quantity} - price: {self.price}'
     

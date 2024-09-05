@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",
     'ckeditor',
+    "debug_toolbar",
     
     #alluth
     'django.contrib.sites',
@@ -66,6 +67,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -205,3 +207,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 #Zarinpal Config 
 MERCHANT_ID = env('DJANGO_MERCHANT_ID')
+
+#Debug Toolbar Configuration
+INTERNAL_IPS = [
+    "127.0.0.1",   
+]

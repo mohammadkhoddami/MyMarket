@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'persian_numbers.apps.PersianNumbersConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
     
     #TPP - Third party packaegs
     'crispy_forms',
@@ -201,3 +202,6 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND')
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+#Zarinpal Config 
+MERCHANT_ID = env('DJANGO_MERCHANT_ID')

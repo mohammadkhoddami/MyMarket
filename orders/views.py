@@ -49,7 +49,8 @@ class CheckoutView(View):
                 request.user.last_name = form_obj.last_name
                 request.user.save()
             
+            request.session['order_id'] = form_obj.id
             messages.success(request,'Your order has been added', 'success')
-            return render(request, self.temp, {'form': form})
+            return redirect('payment:payment_process')
         return render(request, self.temp, {'form': form})
     

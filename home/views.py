@@ -6,6 +6,8 @@ from .models import Product, Comment
 from .forms import CommentForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 class HomeView(generic.ListView):
     queryset = Product.objects.filter(active=True)
     template_name = 'home/index.html'

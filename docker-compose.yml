@@ -5,9 +5,9 @@ services:
     image: postgres
     container_name: postgresql
     environment:
-      - POSTGRES_DB: mymarket
-      - POSTGRES_USER: postgres
-      - POSTGRES_PASSWORD: 123
+      POSTGRES_DB: mymarket
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
 
   web:
     build: .
